@@ -8,6 +8,7 @@ class User extends UserDataHandler
         $iterator = $this->iterate();
 
         if ($this->setPath() && $iterator) {
+            
             return  file_put_contents(
                 $this->setPath().'/'.'report.rep',
                 $iterator.'|'.$task.'|'.$hours."\n",
@@ -24,10 +25,12 @@ class User extends UserDataHandler
             $lines = file($this->setPath().'/'.'report.rep');
 
             if ( ! empty($lines)) {
+
                 for ($i=0; $i < count($lines); $i++) {
                     $id               = explode('|', $lines[$i]);
                     $taskLine[$id[0]] = $lines[$i];
                 }
+
                 if (array_key_exists($taskNumber, $taskLine)) {
                     $singleLine[]          = explode('|', $taskLine[$taskNumber]);
                     $singleLine[0][1]      = $updatedTask;
@@ -49,10 +52,12 @@ class User extends UserDataHandler
             $lines = file($this->setPath().'/'.'report.rep');
             
             if ( ! empty($lines)) {
+
                 for ($i=0; $i < count($lines); $i++) {
                     $id               = explode('|', $lines[$i]);
                     $taskLine[$id[0]] = $lines[$i];
                 }
+
                 if (array_key_exists($taskNumber, $taskLine)) {
                     $singleLine[]          = explode('|', $taskLine[$taskNumber]);
                     $singleLine[0][2]      = $updatedTime;
@@ -74,10 +79,12 @@ class User extends UserDataHandler
             $lines = file($this->setPath().'/'.'report.rep');
 
             if ( ! empty($lines)) {
+
                 for ($i=0; $i < count($lines); $i++) {
                     $id               = explode('|', $lines[$i]);
                     $taskLine[$id[0]] = $lines[$i];
                 }
+                
                 if (array_key_exists($taskNumber, $taskLine)) {
                     unset($taskLine[$taskNumber]);
 

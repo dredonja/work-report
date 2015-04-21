@@ -83,7 +83,6 @@ class DrawReportFinal
 
     protected function totalLine()
     {
-        // total line
         $totalLineSpacesLenght = 77;
         $totalLineSpaces       = [];
 

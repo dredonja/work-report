@@ -23,7 +23,6 @@ class DrawFeesReport
 
     protected function writeDataFromFile($feeID, $feeName, $feeAmount)
     {
-        // id task time line data
         $idPartDataLenght       = strlen($feeID);
         $idPartDataSpacesLenght = 6 - $idPartDataLenght;
         $idPartDataSpaces       = [];
@@ -101,7 +100,6 @@ class DrawFeesReport
 
     protected function totalLine()
     {
-        // total line
         $totalLineSpacesLenght = $this->longestTask + 18;
         $totalLineSpaces       = [];
 
@@ -160,7 +158,7 @@ class DrawFeesReport
                 $this->feeName[$i],
                 $this->feeAmount[$i]
             )."\n";
-            
+
             array_push($linesPartOne, $FileData);
         }
 

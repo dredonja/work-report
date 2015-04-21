@@ -21,14 +21,14 @@ use App\Models\UserDataHandler;
 
 unset($argv[0]);
 
-$MUC  = new MainUserController(
+$MUC = new MainUserController(
     new User,
     new UserDataHandler,
     new UserController,
     new UserDataHandlerController,
     new DrawReport(new UserDataHandler)
 );
-$MFC  = new MainFeesController(
+$MFC = new MainFeesController(
     new Fees,
     new FeesDataHandler,
     new FeesController,

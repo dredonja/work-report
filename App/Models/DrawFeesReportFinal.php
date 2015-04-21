@@ -64,8 +64,6 @@ class DrawFeesReportFinal
         return $firstLineFinal;
     }
 
-    
-
     protected function secondLine()
     {
         $feePartSpacesLenght = 78;
@@ -85,7 +83,6 @@ class DrawFeesReportFinal
 
     protected function totalLine()
     {
-        // total line
         $totalLineSpacesLenght = 77;
         $totalLineSpaces       = [];
 
@@ -109,18 +106,18 @@ class DrawFeesReportFinal
 
     protected function lastLine()
     {
-        $middleLinePartTwoLenght = 83;
-        $middleLinePartTwo       = [];
+        $lastLinePartOneLenght = 83;
+        $lastLinePartOne       = [];
 
-        for ($i=0; $i < $middleLinePartTwoLenght; $i++) {
-            array_push($middleLinePartTwo, '-');
+        for ($i=0; $i < $lastLinePartOneLenght; $i++) {
+            array_push($lastLinePartOne, '-');
         }
 
-        $middleLinePartTwo   = implode($middleLinePartTwo);
-        $middleLinePartThree = '------------';
-        $middleLineFinal     = '+'.$middleLinePartTwo.'+'.$middleLinePartThree.'+';
+        $lastLinePartOne = implode($lastLinePartOne);
+        $lastLinePartTwo = '------------';
+        $lastLineFinal   = '+'.$lastLinePartOne.'+'.$lastLinePartTwo.'+';
         
-        return $middleLineFinal;
+        return $lastLineFinal;
     }
 
     public function draw()

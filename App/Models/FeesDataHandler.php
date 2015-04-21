@@ -7,6 +7,7 @@ class FeesDataHandler extends UserDataHandler
     public function createNewFeeReport()
     {
         if (file_exists($this->setPath()) && ! file_exists($this->setPath().'/'.'fee_iterator')) {
+            
             return $this->setFeeIterator($this->setPath());
         } else {
             return false;

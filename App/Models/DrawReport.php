@@ -23,7 +23,6 @@ class DrawReport
 
     protected function writeDataFromFile($idFromFile, $taskfromFile, $timeFromFile)
     {
-        // id task time line data
         $idPartDataLenght       = strlen($idFromFile);
         $idPartDataSpacesLenght = 6 - $idPartDataLenght;
         $idPartDataSpaces       = [];
@@ -64,7 +63,6 @@ class DrawReport
 
     protected function wrapLine()
     {
-        // third, fifth, seventh and second to last line
         $wrapLinePartOne       = '-------';
         $wrapLinePartTwoLenght = 16 + $this->longestTask;
         $wrapLinePartTwo       = [];
@@ -82,7 +80,6 @@ class DrawReport
 
     protected function idTaskTimeLine()
     {
-        // id task time line definition
         $idPart               = '    ID ';
         $taskPartSpacesLenght = $this->longestTask + 11;
         $taskPartSpaces       = [];
@@ -101,7 +98,6 @@ class DrawReport
 
     protected function totalLine()
     {
-        // total line
         $totalLineSpacesLenght = $this->longestTask + 18;
         $totalLineSpaces       = [];
 
@@ -125,19 +121,19 @@ class DrawReport
 
     protected function lastLine()
     {
-        $wrapLinePartOne       = '-------';
-        $wrapLinePartTwoLenght = 16 + $this->longestTask;
-        $wrapLinePartTwo       = [];
+        $lastLinePartOne       = '-------';
+        $lastLinePartTwoLenght = 16 + $this->longestTask;
+        $lastLinePartTwo       = [];
 
-        for ($i=0; $i < $wrapLinePartTwoLenght; $i++) {
-            array_push($wrapLinePartTwo, '-');
+        for ($i=0; $i < $lastLinePartTwoLenght; $i++) {
+            array_push($lastLinePartTwo, '-');
         }
 
-        $wrapLinePartTwo   = implode($wrapLinePartTwo);
-        $wrapLinePartThree = '------------';
-        $wrapLineFinal     = '+'.$wrapLinePartOne.'-'.$wrapLinePartTwo.'+'.$wrapLinePartThree.'+';
+        $lastLinePartTwo   = implode($lastLinePartTwo);
+        $lastLinePartThree = '------------';
+        $lastLineFinal     = '+'.$lastLinePartOne.'-'.$lastLinePartTwo.'+'.$lastLinePartThree.'+';
         
-        return $wrapLineFinal;
+        return $lastLineFinal;
     }
 
     public function draw()

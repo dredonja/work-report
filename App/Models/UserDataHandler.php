@@ -120,6 +120,7 @@ class UserDataHandler
     protected function getCurrentDateData()
     {
         if (file_exists('User/current-month.rep')) {
+
             return file_get_contents('User/current-month.rep');
         } else {
             return false;
@@ -175,6 +176,7 @@ class UserDataHandler
     public function getReportData()
     {
         if ($this->reportDataExists('report.rep')) {
+
             return $this->setPath().'/'.'report.rep';
         } else {
             return false;
@@ -186,11 +188,14 @@ class UserDataHandler
         if ($this->reportDataExists('report.rep')) {
             $lines       = file($this->getReportData());
             $longestTask = [];
+
             for ($i=0; $i <count($lines); $i++) {
                 $taskLine[] = explode('|', $lines[$i]);
                 array_push($longestTask, strlen($taskLine[$i][1]));
             }
+
             if ( ! empty($longestTask)) {
+
                 return $longestTask = max($longestTask);
             } else {
                 return false;
@@ -205,6 +210,7 @@ class UserDataHandler
         if ($this->reportDataExists('report.rep')) {
             $lines = file($this->getReportData());
             $sum   = [];
+
             for ($i=0; $i <count($lines); $i++) {
                 $taskLine[] = explode('|', $lines[$i]);
                 array_push($sum, $taskLine[$i][2]);
@@ -221,6 +227,7 @@ class UserDataHandler
         if ($this->reportDataExists('report.rep')) {
             $lines  = file($this->getReportData());
             $taskID = [];
+
             for ($i=0; $i <count($lines); $i++) {
                   $taskLine[] = explode('|', $lines[$i]);
                   array_push($taskID, trim($taskLine[$i][0]));
@@ -237,6 +244,7 @@ class UserDataHandler
         if ($this->reportDataExists('report.rep')) {
             $lines      = file($this->getReportData());
             $taskItSelf = [];
+
             for ($i=0; $i <count($lines); $i++) {
                  $taskLine[] = explode('|', $lines[$i]);
                  array_push($taskItSelf, trim($taskLine[$i][1]));
@@ -253,6 +261,7 @@ class UserDataHandler
         if ($this->reportDataExists('report.rep')) {
             $lines     = file($this->getReportData());
             $taskHours = [];
+
             for ($i=0; $i <count($lines); $i++) {
                  $taskLine[] = explode('|', $lines[$i]);
                  array_push($taskHours, trim($taskLine[$i][2]));
@@ -276,9 +285,9 @@ class UserDataHandler
 
     public function status()
     {
-        return 'First name: ' . $this->getUserFirstName() . "\n" .
-               'Last name: ' . $this->getUserLastName() . "\n" .
-               'Skrill e-mail: ' . $this->getUserEmail() . "\n\n" .
+        return 'First name: ' . $this->getUserFirstName()."\n".
+               'Last name: ' . $this->getUserLastName()."\n".
+               'Skrill e-mail: ' . $this->getUserEmail()."\n\n".
                'Current month is set to '.$this->currentMonthName().'/'.$this->currentYear().'.';
     }
 
